@@ -1,0 +1,442 @@
+@import "tailwindcss";
+
+:root {
+  --background: #080c14;
+  --foreground: #e5e7eb;
+  --primary: #f8fafc;
+  --secondary: #94a3b8;
+  --accent: #60a5fa;
+  --accent-strong: #3b82f6;
+  --accent-light: #172554;
+  --card: #0f172a;
+  --card-light: #151f32;
+  --border: #243044;
+  --border-light: #334155;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+::selection {
+  background: #3b82f6;
+  color: white;
+}
+
+/* =========================
+   CONTENEDOR
+========================= */
+
+.contenedor {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+/* =========================
+   SECCIONES
+========================= */
+
+.seccion {
+  padding: 110px 0;
+}
+
+/* =========================
+   ENCABEZADOS
+========================= */
+
+.etiqueta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.12);
+  border: 1px solid rgba(96, 165, 250, 0.18);
+  color: #60a5fa;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.titulo-seccion {
+  margin-top: 16px;
+  max-width: 720px;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  font-weight: 800;
+  color: #f8fafc;
+}
+
+.descripcion-seccion {
+  margin-top: 18px;
+  max-width: 680px;
+  color: #94a3b8;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* =========================
+   TARJETAS
+========================= */
+
+.tarjeta {
+  background: #0f172a;
+  border: 1px solid #243044;
+  border-radius: 24px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.22);
+}
+
+.tarjeta-hover {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.tarjeta-hover:hover {
+  transform: translateY(-5px);
+  border-color: #3b4d68;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================
+   LÍNEA DE TIEMPO
+========================= */
+
+.timeline {
+  position: relative;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 18px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background: #263244;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 60px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 8px;
+  top: 5px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #0f172a;
+  border: 5px solid #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.08);
+}
+
+/* =========================
+   TAGS
+========================= */
+
+.tag {
+  display: inline-flex;
+  padding: 7px 11px;
+  border-radius: 8px;
+  background: #111827;
+  color: #cbd5e1;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid #334155;
+}
+
+/* =========================
+   BOTONES
+========================= */
+
+.boton-principal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 18px;
+  border-radius: 12px;
+  background: #3b82f6;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.18);
+}
+
+.boton-principal:hover {
+  transform: translateY(-2px);
+  background: #2563eb;
+  box-shadow: 0 12px 30px rgba(59, 130, 246, 0.25);
+}
+
+/* =========================
+   FONDO CON GRID
+========================= */
+
+.fondo-grid {
+  background-color: #080c14;
+  background-image:
+    linear-gradient(
+      rgba(71, 85, 105, 0.08) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(71, 85, 105, 0.08) 1px,
+      transparent 1px
+    );
+  background-size: 32px 32px;
+}
+
+/* =========================
+   TARJETAS DE INTERESES
+========================= */
+
+.interes-imagen {
+  position: relative;
+  overflow: hidden;
+  height: 115px;
+  margin: 12px 12px 0;
+  border-radius: 18px;
+  background: #0b1220;
+  border: 1px solid #263244;
+}
+
+.interes-imagen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to bottom,
+      transparent 40%,
+      rgba(8, 12, 20, 0.35)
+    );
+  pointer-events: none;
+}
+
+.interes-imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.72;
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease;
+}
+
+.tarjeta-hover:hover .interes-imagen img {
+  transform: scale(1.05);
+  opacity: 0.95;
+}
+
+/* =========================
+   GALERÍA DE INTERESES
+========================= */
+
+.interes-galeria {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  height: 115px;
+  margin: 12px 12px 0;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #0b1220;
+  border: 1px solid #263244;
+}
+
+.interes-galeria img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.72;
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease;
+}
+
+.tarjeta-hover:hover .interes-galeria img {
+  opacity: 0.95;
+}
+
+.tarjeta-hover:hover .interes-galeria img:hover {
+  transform: scale(1.06);
+}
+
+/* =========================
+   CANCIONES
+========================= */
+
+.lista-canciones {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.canciones-musica {
+  margin-top: 18px;
+}
+
+.cancion {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #0b1220;
+  border: 1px solid #263244;
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.cancion:hover {
+  transform: translateX(3px);
+  background: #111d33;
+  border-color: #3b82f6;
+}
+
+.cancion-icono {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #172554;
+  color: #60a5fa;
+  font-size: 10px;
+}
+
+.cancion-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.cancion-titulo {
+  color: #e5e7eb;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cancion-artista {
+  margin-top: 2px;
+  color: #64748b;
+  font-size: 11px;
+}
+
+.cancion-flecha {
+  color: #64748b;
+  font-size: 15px;
+  transition: color 0.2s ease;
+}
+
+.cancion:hover .cancion-flecha {
+  color: #60a5fa;
+}
+
+/* =========================
+   LOGOS DE TECNOLOGÍAS
+========================= */
+
+.logo-tecnologia {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 74px;
+  height: 74px;
+  border-radius: 18px;
+  background: #0b1220;
+  border: 1px solid #263244;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.logo-tecnologia:hover {
+  transform: translateY(-5px);
+  border-color: #3b82f6;
+  background: #111d33;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.logo-tecnologia img {
+  width: 43px;
+  height: 43px;
+  object-fit: contain;
+}
+
+.logo-tecnologia .logo-github {
+  filter: invert(1);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  .contenedor {
+    width: min(100% - 28px, 1180px);
+  }
+
+  .seccion {
+    padding: 80px 0;
+  }
+
+  .imagen-espacio {
+    min-height: 200px;
+  }
+
+  .timeline::before {
+    left: 13px;
+  }
+
+  .timeline-item {
+    padding-left: 45px;
+  }
+
+  .timeline-dot {
+    left: 3px;
+  }
+
+  .interes-imagen {
+    height: 120px;
+  }
+
+  .interes-galeria {
+    height: 120px;
+  }
+}
