@@ -97,7 +97,7 @@ export default function MiHistoria() {
 
           <div className="lg:sticky lg:top-28 lg:self-start">
             <div className="tarjeta p-4">
-              <div className="relative h-[350px] overflow-hidden rounded-[20px]"></div>
+              <div className="relative h-[280px] overflow-hidden rounded-[20px] lg:h-[350px]"></div>
               <Image
                 src="/images/Familia.jpeg"
                 alt="Fotografía de mi infancia"
